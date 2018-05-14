@@ -32,7 +32,7 @@ def getHeader(path):
 def iterateChildren(node):
      for child in node.children():
  
-        if len(child.comment())==0 :
+        if len(child.comment())==0 and child.isEditable():
             description = getHeader(child.type().defaultHelpUrl())
             child.setComment(description)
             child.setGenericFlag(hou.nodeFlag.DisplayComment,True)
